@@ -40,8 +40,8 @@ app.use('/img/', express.static(path.join(__dirname, '/public/img/')));
 
 //Indicamos que el servidor 
 app.use('/api/', authRoutes);
-app.use('/api', productRoutes);
-app.use('/api', partsRoutes);
+app.use('/api/', productRoutes);
+app.use('/api/', partsRoutes);
 app.get('/', (req, res) =>{
     res.json({
         mensaje: "Bienvenido a SOTP",
