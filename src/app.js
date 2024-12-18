@@ -36,7 +36,7 @@ app.use(express.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended: false}));
-app.use('/img/', express.static(path.join(__dirname, '/public/img/')))
+app.use('/img/', express.static(path.join(__dirname, '/public/img/')));
 
 //Indicamos que el servidor 
 app.use('/api/', authRoutes);
