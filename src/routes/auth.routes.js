@@ -3,6 +3,10 @@ import { login, register, logout, profile, verifyToken } from '../controllers/au
 import { authRequired } from "../middlewares/validateToken.js";
 import { validateSchema } from "../middlewares/validator.middleware.js";
 import {registerSchema, loginSchema} from "../schemas/auth.schemas.js";
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
 const router = Router();
 router.get('/verify', verifyToken);
 
