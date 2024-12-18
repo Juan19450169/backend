@@ -26,7 +26,8 @@ app.use(cors({
         'http://localhost:5173',
         'http://localhost:3000',
         'http://localhost',
-    process.env.BASE_URL
+    process.env.BASE_URL_BACKEND,
+    process.env.BASE_URL_FRONTEND
     ],
     credentials:true
 }));
@@ -41,5 +42,15 @@ app.use('/img/', express.static(path.join(__dirname, '/public/img/')))
 app.use('/api/', authRoutes);
 app.use('/api', productRoutes);
 app.use('/api', partsRoutes);
+app.get('/', (req, res) =>{
+    res.json({
+        mensaje: "Bienvenido a SOTP",
+        version: "1.1.0",
+        rutasDsiponobles: [
+            {endpoint: "/api/register", metodo: "POST", descripcion: "Crea un nuevo usuario"},
+            {endpoint: "/api/login", metodo: "POST", descripcion: "Para iniciar sesion"}
+        ]
+        });
+})
 export default app;
  
