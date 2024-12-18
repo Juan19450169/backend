@@ -22,7 +22,12 @@ import partsRoutes from './routes/parts.routes.js';
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:5173','http://localhost:3000'],
+    origin: [
+        'http://localhost:5173',
+        'http://localhost:3000',
+        'http://localhost',
+    process.env.BASE_URL
+    ],
     credentials:true
 }));
 app.use(morgan('dev'));
